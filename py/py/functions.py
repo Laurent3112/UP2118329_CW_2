@@ -87,3 +87,15 @@ def encode_labels(
     y_test_e = le.transform(y_test)
     return y_train_e, y_val_e, y_test_e, le
 
+def subsample_training_data(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    n_samples: int,
+    random_state: int = 42
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Return a random subset of the training data of size n_samples.
+    """
+    rng = np.random.default_rng(random_state)
+    idx = rng.choice(len(X_train), size=n_samples, replace=False)
+    return X_train[idx], y_train[idx]
