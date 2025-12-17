@@ -71,16 +71,19 @@ def scale_features(
 
 from sklearn.preprocessing import LabelEncode
 
+from sklearn.preprocessing import LabelEncoder
+
 def encode_labels(
     y_train: pd.Series,
     y_val: pd.Series,
     y_test: pd.Series
- -> Tuple[np.ndarray, np.ndarray, np.ndarray, LabelEncoder]
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, LabelEncoder]:
     """
     Encode string labels (STAR/GALAXY/QSO) into integer classes.
     """
     le = LabelEncoder()
-    y_train_e = l.fit_transform(y_train)
+    y_train_e = le.fit_transform(y_train)
     y_val_e = le.transform(y_val)
-    y_test_e = e.transform(y_test)
-    return y_trin_e, y_val_e, y_test_e, le
+    y_test_e = le.transform(y_test)
+    return y_train_e, y_val_e, y_test_e, le
+
