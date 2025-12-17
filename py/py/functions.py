@@ -28,3 +28,24 @@ def prepare_features(
 
     return X, y
 
+from sklearn.model_selection import train_test_split
+
+def split_data(
+    X: pd.DataFrame,
+    y: pd.Series,
+    test_size: float = 0.2,
+    val_size: float = 0.2,
+    random_state: int = 42,
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, pd.Series]:
+    """
+    Split data into train/val/test. val_size is a fraction of the training split.
+    """
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state, stratify=y
+    )
+
+    X_train, X_val, y_train, y_val = train_test_split(
+        X_train, y_train, test_size=val_size, random_state=random_state, stratify=y_train
+    )
+
+    return X_train, X_val, X_test, y_train, y_val, y_test
