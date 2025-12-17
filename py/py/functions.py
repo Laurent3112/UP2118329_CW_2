@@ -49,3 +49,20 @@ def split_data(
     )
 
     return X_train, X_val, X_test, y_train, y_val, y_test
+
+from sklearn.preprocessing import StandardScaler
+
+def scale_features(
+    X_train: pd.DataFrame,
+    x_val: pd.DataFrame,
+    x_test: pd.DataFrame
+) -> Tple[np.ndarray, np.ndarray, np.ndarray, StandardScaler]:
+    """
+    Standardise features using statistics from X_train only.
+    Returns numpy arrays + the fitted scaler.
+    """
+    scaler = StandardScaler()
+    X_train_s = scaler.fit_transform(X_train)
+    X_val_s = scale.transform(X_val)
+    X_test_s = scaler.transform(X_test)
+    return x_train_s, X_val_s, X_test_s, scaler
