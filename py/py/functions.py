@@ -50,7 +50,6 @@ def split_data(
 
     return X_train, X_val, X_test, y_train, y_val, y_test
 
-from sklearn.preprocessing import StandardScaler
 
 from sklearn.preprocessing import StandardScaler
 
