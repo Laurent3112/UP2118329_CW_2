@@ -5,7 +5,7 @@ Here is my coursework 2
 
 This repository contains my submission for Coursework 2 for the Data Science / Machine Learning module.
 
-he coursework is based on a real astronomical dataset from the Sloan Digital Sky Survey (SDSS) and addresses the supervised classification problem of identifying whether an observed object is a **STAR**, **GALAXY**, or **QSO (quasar)** from its measured features.
+The coursework is based on a real astronomical dataset from the Sloan Digital Sky Survey (SDSS) and addresses the supervised classification problem of identifying whether an observed object is a **STAR**, **GALAXY**, or **QSO (quasar)** from its measured features.
 
 The work is organised into three main parts:
 
